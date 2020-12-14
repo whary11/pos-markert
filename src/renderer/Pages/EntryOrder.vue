@@ -11,20 +11,23 @@
                 <SearchProducts nameModal="seach_product_entry_order" :addInEnterEvent="true" @Product="setProductSelected"/>
                 
                 <!-- Render de productos seleccionados -->
-                <div class="row" v-for="(product, key) in order.products" :key="key">
-                    <div class="col-4">
+                <div class="row mb-4">                    
+                    <div class="col-12" v-for="(product, key) in order.products" :key="key">
+                        <v-divider  />
+
                         <v-avatar :color="'black'" :size="30" class="mx-auto mr-4">
                             <img :src="product.image" :alt="product.description">
                         </v-avatar>
-                        <span >{{product.name}}
-                            <button type="button" slot="top-right" class="close" @click="deleteQuantity(product, key)" data-dismiss="modal" aria-label="Close">
+                        <span class="ml-4">{{product.name}}
+                            <button type="button" class="ml-4 mr-4 increment-decrement shadow-lg bg-dark text-white" @click="deleteQuantity(product, key)">
                                 -
                             </button>
                             <span>{{product.quantity}}</span>
-                            <button type="button" slot="top-right" class="close" @click="addQuantity(product)" data-dismiss="modal" aria-label="Close">
+                            <button type="button" class="ml-4 increment-decrement shadow-lg bg-dark text-white" @click="addQuantity(product)">
                                 +
                             </button>
                         </span>
+                        <v-divider v-if="key+1 == order.products.length" />
                     </div>
                 </div>
             </div>
@@ -53,14 +56,14 @@
                         </p>
                     <p class="text-primary">Total: ${{new Intl.NumberFormat().format(getTotalOrder)}}</p>
                 </div>
-                <button class="btn btn-success mt-4" @click.prevent="generateOrder()">Generar venta</button>
+                <button class="btn btn-success mt-4" @click.prevent="generateOrder()">Generar orden</button>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import SearchProducts from '../components/General/SearchProducto'
+import SearchProducts from '../components/General/SearchProducts'
 export default {
     components: {
         SearchProducts
@@ -134,6 +137,15 @@ export default {
         },
 
         generateOrder(){
+            if (this.order.products.length < 1) {
+                this.$swal({
+                    text: `Debes seleccionar productos`,
+                    icon: `warning`
+                })
+                return
+            }
+
+            alert(JSON.stringify(this.order))
             console.log(this.order);
         }
     },
@@ -150,8 +162,17 @@ export default {
             if (this.order.count_payment < this.order.total || this.order.count_payment == 0) {
                 return `Sin información para calcular.`
             }
-            return  `$ ${new Intl.NumberFormat().format(this.order.count_payment - this.order.total)}`
+            return  `$ ${new Intl.NumberFormat().format(this.order.count_payment - this.order.total)} pesos`
         }
     }
 }
 </script>
+
+<style>
+    .increment-decrement{
+        width: 4%;
+        height: 46%;
+        border-radius: 100%;
+        font-weight: bold;
+    }
+</style>

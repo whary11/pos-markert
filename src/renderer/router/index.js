@@ -8,13 +8,15 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
-      path: "/",
-      name: "landing-page",
-      component: require("@/App").default,
+      path: "/products",
+      name: "products",
+      component: require("@/Pages/Products").default,
     },
     {
-      path: "*",
-      redirect: "/",
+      path: "/entry-order",
+      name: "products",
+      component: require("@/Pages/EntryOrder").default,
     },
+    
   ],
 });

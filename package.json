@@ -1,5 +1,5 @@
 {
-  "name": "excel-db",
+  "name": "POS Markert",
   "version": "0.0.1",
   "author": "Luis Fernando Raga <whary11@gmail.com>",
   "description": "An electron-vue project",
@@ -17,7 +17,7 @@
     "postinstall": ""
   },
   "build": {
-    "productName": "excel-db",
+    "productName": "POS Markert",
     "appId": "Lraga",
     "directories": {
       "output": "build"

@@ -13,7 +13,7 @@
                 <!-- Render de productos seleccionados -->
                 <div class="row mb-4">                    
                     <div class="col-12" v-for="(product, key) in order.products" :key="key">
-                        <v-divider  />
+                        <v-divider class="m-2" />
 
                         <v-avatar :color="'black'" :size="30" class="mx-auto mr-4">
                             <img :src="product.image" :alt="product.description">
@@ -27,7 +27,7 @@
                                 +
                             </button>
                         </span>
-                        <v-divider v-if="key+1 == order.products.length" />
+                        <v-divider v-if="key+1 == order.products.length" class="m-2"/>
                     </div>
                 </div>
             </div>

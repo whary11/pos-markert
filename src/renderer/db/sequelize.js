@@ -1,4 +1,4 @@
-const config = require('./dbconfig');
+const config = require('./env');
 
 var mysql = require('mysql');
 

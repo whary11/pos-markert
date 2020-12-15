@@ -1,5 +1,5 @@
 import db from './sequelize'
-import dbconfig from './dbconfig'
+import dbconfig from './env'
 
 let f = {
     getNameTables(){

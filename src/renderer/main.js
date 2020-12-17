@@ -49,6 +49,20 @@ import f from "./functions";
 Vue.prototype.$db = db;
 Vue.prototype.$fun = f;
 
+// db.productRandom()
+
+
+// Model JSON DB
+import Order from './db/Models/Order'
+import Product from './db/Models/Product'
+// let order = new Order;
+Vue.prototype.$Order = new Order;
+Vue.prototype.$Product = new Product;
+
+
+
+// console.log(order.conexion());
+
 // Components
 import App from "./App";
 import vSelect from "vue-select";

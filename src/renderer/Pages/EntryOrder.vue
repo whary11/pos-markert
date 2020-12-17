@@ -82,6 +82,11 @@ export default {
             ]
         }
     },
+    mounted(){
+        // let Order = new This.$Order this.$Order.conexion()
+
+        console.log(this.$Order.fileName);
+    },
     methods: {
         setProductSelected(product){
             let result = this.order.products.find(item => item.id == product.id)
@@ -145,8 +150,26 @@ export default {
                 return
             }
 
-            alert(JSON.stringify(this.order))
-            console.log(this.order);
+            try {
+                let result = this.$Order.create(this.order)
+                this.$swal({
+                    html: `Orden creeda con exito (${result.id}).`,
+                    icon: `success`
+                })
+            } catch (error) {
+                this.$swal({
+                    text: `Hubo un error`,
+                    icon: `warning`
+                })
+            }
+
+            this.order = {
+                customer:null,
+                products:[],
+                total: 0,
+                count_payment: 0
+            }
+
         }
     },
     computed: {

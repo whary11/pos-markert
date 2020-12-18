@@ -1,4 +1,4 @@
-# POS Markert
+# POS Marker
 
 > An electron-vue project
 

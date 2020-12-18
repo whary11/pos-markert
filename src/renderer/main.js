@@ -49,15 +49,17 @@ import f from "./functions";
 Vue.prototype.$db = db;
 Vue.prototype.$fun = f;
 
-// db.productRandom()
+// db.brandRandom()
 
 
 // Model JSON DB
 import Order from './db/Models/Order'
 import Product from './db/Models/Product'
+import Brand from './db/Models/Brand'
 // let order = new Order;
 Vue.prototype.$Order = new Order;
 Vue.prototype.$Product = new Product;
+Vue.prototype.$Brand = new Brand;
 
 
 

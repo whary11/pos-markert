@@ -99,7 +99,6 @@ let f = {
                 stock: 10,
                 image: `https://scontent.fbog11-1.fna.fbcdn.net/v/t1.0-9/67654490_10218672031367891_7179299875513696256_o.jpg?_nc_cat=102&ccb=2&_nc_sid=09cbfe&_nc_eui2=AeFwgr_ovkUKC1ENwdFwR6rFFxEEJMBgIc4XEQQkwGAhzrOAJIteF9NDXvcvVOObqc8&_nc_ohc=LN6Nd0GugA4AX9ErVkB&_nc_ht=scontent.fbog11-1.fna&oh=f3b792890fb0e9828222363e0924cd2f&oe=5FFBEDB9`,
                 price: 30000,
-                id: index+1
             })
         }
         db.set('products', products)
@@ -107,7 +106,7 @@ let f = {
     },
     brandRandom(){
         const db = new JSONdb('./pos-market-brands.json');
-        let brands = db.get('/brands');
+        let brands = db.get('brands');
         console.log(typeof brands);
         
         if (typeof brands == "object") {
@@ -118,19 +117,19 @@ let f = {
         for (let index = 0; index < 20; index++) {
             brands.push({
                 name: `Marca test ${index+1}`,
-                description: `Producto test ${index+1}`,
+                description: `Marca test ${index+1}`,
                 id:index+1,
-                sku: 756873496+(index+1),
-                stock: 10,
+                // sku: 756873496+(index+1),
+                // stock: 10,
                 image: `https://scontent.fbog11-1.fna.fbcdn.net/v/t1.0-9/67654490_10218672031367891_7179299875513696256_o.jpg?_nc_cat=102&ccb=2&_nc_sid=09cbfe&_nc_eui2=AeFwgr_ovkUKC1ENwdFwR6rFFxEEJMBgIc4XEQQkwGAhzrOAJIteF9NDXvcvVOObqc8&_nc_ohc=LN6Nd0GugA4AX9ErVkB&_nc_ht=scontent.fbog11-1.fna&oh=f3b792890fb0e9828222363e0924cd2f&oe=5FFBEDB9`
             })
         }
-        db.set('/brands', brands)
-        console.log(db.get('/brands'));
+        db.set('brands', brands)
+        console.log(db.get('brands'));
     },
     subCategoryRandom(){
         const db = new JSONdb('./pos-market-subCategory.json');
-        let subCategory = db.get('/subCategory');
+        let subCategory = db.get('subCategory');
         console.log(typeof subCategory);
         
         if (typeof subCategory == "object") {
@@ -148,12 +147,12 @@ let f = {
                 image: `https://scontent.fbog11-1.fna.fbcdn.net/v/t1.0-9/67654490_10218672031367891_7179299875513696256_o.jpg?_nc_cat=102&ccb=2&_nc_sid=09cbfe&_nc_eui2=AeFwgr_ovkUKC1ENwdFwR6rFFxEEJMBgIc4XEQQkwGAhzrOAJIteF9NDXvcvVOObqc8&_nc_ohc=LN6Nd0GugA4AX9ErVkB&_nc_ht=scontent.fbog11-1.fna&oh=f3b792890fb0e9828222363e0924cd2f&oe=5FFBEDB9`
             })
         }
-        db.set('/subCategory', subCategory)
-        console.log(db.get('/subCategory'));
+        db.set('subCategory', subCategory)
+        console.log(db.get('subCategory'));
     },
     categoryRandom(){
         const db = new JSONdb('./pos-market-categoryRandom.json');
-        let category = db.get('/category');
+        let category = db.get('category');
         console.log(typeof category);
         
         if (typeof category == "object") {
@@ -171,8 +170,8 @@ let f = {
                 image: `https://scontent.fbog11-1.fna.fbcdn.net/v/t1.0-9/67654490_10218672031367891_7179299875513696256_o.jpg?_nc_cat=102&ccb=2&_nc_sid=09cbfe&_nc_eui2=AeFwgr_ovkUKC1ENwdFwR6rFFxEEJMBgIc4XEQQkwGAhzrOAJIteF9NDXvcvVOObqc8&_nc_ohc=LN6Nd0GugA4AX9ErVkB&_nc_ht=scontent.fbog11-1.fna&oh=f3b792890fb0e9828222363e0924cd2f&oe=5FFBEDB9`
             })
         }
-        db.set('/category', category)
-        console.log(db.get('/category'));
+        db.set('category', category)
+        console.log(db.get('category'));
     }
 }
 

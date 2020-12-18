@@ -2,14 +2,20 @@ const JSONdb = require('simple-json-db');
 export  default class Model {
     db = null
     fileName = 'orders'
+    primaryKey = 'id'
     constructor(){}
 
 
     get(){
         this.conexion()
-        // console.log(this.fileName);
-        // console.log(this.db.get(`${this.fileName}`));
-        return this.db.get(`${this.fileName}`)
+        let data = this.db.get(`${this.fileName}`)
+        return data ? data : [] 
+    }
+
+    find(id){
+        let data = this.get()
+        const records = data.find(element => element[this.primaryKey] == id);
+        return records;
     }
 
     conexion(){

@@ -40,7 +40,7 @@ export default {
     },
     data(){
         return {
-            products: this.$Product.get(),
+            products: this.$Product.newGet(),
             columns: ['id', 'name', 'description','sku','stock', 'Foto', 'Opciones'],
             headings: {
                 name: "Nombre",
@@ -50,8 +50,11 @@ export default {
         }
     },
     mounted(){
-        let product = this.$Product.find(2);
-        console.log(product);
+        // let products = this.$Product.newGet();
+        // console.log(product);
+
+
+
     },
     methods: {
         createProductEvent(newProduct){
@@ -59,7 +62,7 @@ export default {
                 text: "Producto creado correctamente",
                 icon: "success"
             })
-            this.products = this.$Product.get()
+            this.products = this.$Product.newGet()
         }
     }
 }

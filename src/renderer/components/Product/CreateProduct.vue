@@ -57,18 +57,19 @@
                 newProduct: {}
             }
         },
-        mounted(){},
+        mounted(){
+        },
         methods: {
             createProduct(){
-                if (!this.newProduct.brand) {
-                    this.$swal({
-                        text: "Debes seleccionar una marca.",
-                        icon: "warning"
-                    })
-                    return
-                }
+                // if (!this.newProduct.brand) {
+                //     this.$swal({
+                //         text: "Debes seleccionar una marca.",
+                //         icon: "warning"
+                //     })
+                //     return
+                // }
                 this.newProduct.image = "https://scontent.fbog11-1.fna.fbcdn.net/v/t1.0-9/67654490_10218672031367891_7179299875513696256_o.jpg?_nc_cat=102&ccb=2&_nc_sid=09cbfe&_nc_eui2=AeFwgr_ovkUKC1ENwdFwR6rFFxEEJMBgIc4XEQQkwGAhzrOAJIteF9NDXvcvVOObqc8&_nc_ohc=LN6Nd0GugA4AX9ErVkB&_nc_ht=scontent.fbog11-1.fna&oh=f3b792890fb0e9828222363e0924cd2f&oe=5FFBEDB9"
-                this.$Product.create(this.newProduct)
+                this.$Product.newCreate(this.newProduct)
                 this.newProduct = {}
                 this.$emit("CreateProduct", this.newProduct)
                 this.$modal.hide(this.nameModal)

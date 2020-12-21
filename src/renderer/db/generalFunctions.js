@@ -105,7 +105,7 @@ let f = {
         console.log(db.get('products'));
     },
     brandRandom(){
-        const db = new JSONdb('./pos-market-brands.json');
+        const db = new JSONdb('./static/pos-market-brands.json');
         let brands = db.get('brands');
         console.log(typeof brands);
         

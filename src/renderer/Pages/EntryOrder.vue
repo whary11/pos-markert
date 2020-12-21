@@ -83,9 +83,12 @@ export default {
         }
     },
     mounted(){
-        // let Order = new This.$Order this.$Order.conexion()
+        // if (this.$Brand.get().length == 0) {
+        //     this.$db.brandRandom()
+        //     alert(JSON.stringify(this.$Brand.find(1)));
+        // }
 
-        console.log(this.$Order.fileName);
+        
     },
     methods: {
         setProductSelected(product){
@@ -151,7 +154,7 @@ export default {
             }
 
             try {
-                let result = this.$Order.create(this.order)
+                let result = this.$Order.newCreate(this.order)
                 this.$swal({
                     html: `Orden creeda con exito (${result.id}).`,
                     icon: `success`
